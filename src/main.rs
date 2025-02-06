@@ -1,6 +1,5 @@
 use std::fs;
 use std::io;
-use std::process;
 
 fn main() {
     let mut user_input = String::new();
@@ -12,8 +11,7 @@ fn main() {
     let content = match fs::read_to_string(file_path) {
         Ok(content) => content,
         Err(err) => {
-            eprintln!("Error reading file: {}", err);
-            process::exit(1);
+            panic!("Error reading file: {}", err)
         }
     };
     let trimmed_content = content.trim();
