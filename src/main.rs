@@ -1,20 +1,24 @@
+use std::env;
 use std::fs;
-use std::io;
 
 fn main() {
-    let mut user_input = String::new();
-    println!("Please enter the absolute path:");
-    io::stdin().read_line(&mut user_input).expect("Error: Can't read the line");
+    let args: Vec<String> = env::args().collect();
 
-    let file_path = user_input.trim();
+    if args.len() < 2 {
+        panic!("Error in file path");
+    }
+
+    let file_path = &args[1];
 
     let content = match fs::read_to_string(file_path) {
         Ok(content) => content,
         Err(err) => {
-            panic!("Error reading file: {}", err)
+            panic!("Error reading file: {}", err);
         }
     };
+
     let trimmed_content = content.trim();
+
     let word_count = count_words(&trimmed_content);
     let line_count = count_lines(&trimmed_content);
     let char_count = count_characters(&trimmed_content);
