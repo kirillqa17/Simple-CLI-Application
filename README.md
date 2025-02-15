@@ -17,4 +17,4 @@ Learning Objectives:
 - Understand Rust's syntax and basic data types.
 - Learn about Rust's ownership model when handling file I/O.
 - Implement error handling using `Result` and `Option` types.
-![image](https://github.com/user-attachments/assets/3bc32dae-c6ab-4347-9cb1-29b740cea45e)
+![image](https://github.com/user-attachments/assets/1c56451e-21ab-4c5e-9c95-f4e7d043dda9)
